@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.doan_tmdt"
+        applicationId "com.example.cosmesticApp"
         minSdkVersion 28
         targetSdkVersion 31
         versionCode 1
@@ -48,9 +48,6 @@ dependencies {
     // https://github.com/hdodenhof/CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    implementation platform('com.google.firebase:firebase-bom:31.0.0')
-    implementation 'com.google.firebase:firebase-auth'
-    implementation 'com.google.firebase:firebase-firestore' // lưu dữ liệu firebasestore
     implementation 'com.github.momo-wallet:mobile-sdk:1.0.7' // APi momo
     implementation 'com.squareup.picasso:picasso:2.71828' // Picasso xử lý các ImageView trong adapter
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0' // biểu đồ

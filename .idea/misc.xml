@@ -1,7 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home_fragment.xml" />
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/drawable/background_blue.xml" value="0.145" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/drawable/ic_contact.xml" value="0.2495" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_admin_add_loai_spactivity.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_admin_add_spactivity.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_admin_bill_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_admin_chart_bill.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_admin_cthdactivity.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_admin_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_admin_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_admin_users.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_cart.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_category.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_chat.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_comment.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_cthdactivity.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_danh_gia.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_detail_spactivity.xml" value="0.264" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_favorite.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_forgot_password.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_message.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_order_success.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_search.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_sign_in.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_sign_up.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/activity_splash.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/chat_item_left.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/chat_item_right.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/custom_dong_auto_text.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dialog_add_users.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dialog_danhgia.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dialog_info_users.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dialog_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dialog_thanhtoan.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dialog_update_trangthai.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_admin_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_admin_users.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_all_comment.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_banner.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_bill.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_binhluan.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_category.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_chitiet_hoadon.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_cthd_admin.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_do_uong.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_ds_product.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_favorite.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_giohang.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_hoadon.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_hoadon_dagiao.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_lichsu_search.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_loai_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_product_noibat.xml" value="0.25416666666666665" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_sp_goiy.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_sp_micay.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/dong_sp_yeuthich.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/fragment_bill.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/fragment_cart.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/fragment_contact.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/fragment_dang_xu_ly.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/fragment_favorite.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/fragment_notify.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/fragment_profile.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/layout_loading.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/layout_persistent_bottom_sheet.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/profile_menu_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/layout/user_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/4namdaihoc/ky2nam4/do_an_tot_nghiep/DoAnTMDT/DoAnTMDT/app/src/main/res/mipmap-anydpi-v26/ic_food2.xml" value="0.145" />
+      </map>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

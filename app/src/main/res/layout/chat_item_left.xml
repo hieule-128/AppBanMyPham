@@ -10,7 +10,7 @@
         android:id="@+id/img_chat"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:paddingStart="10dp"

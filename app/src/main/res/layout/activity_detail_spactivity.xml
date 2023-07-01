@@ -23,6 +23,8 @@
             app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutExpandedTextStyle"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
             app:title="Gà rang muối"
+            android:outlineAmbientShadowColor="@color/black"
+            android:outlineSpotShadowColor="@color/black"
             android:id="@+id/collapsing_toolbar">
 
             <ImageView

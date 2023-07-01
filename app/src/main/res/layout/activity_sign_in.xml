@@ -6,12 +6,11 @@
     android:orientation="vertical"
     android:background="@drawable/background_signin_user">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_marginTop="30dp"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
-        android:src="@drawable/img_gofood"
-        android:layout_gravity="center"/>
+<ImageView
+    android:layout_width="130dp"
+    android:layout_height="130dp"
+    android:background="@drawable/rcq"
+    android:layout_marginLeft="130dp"/>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="370dp"

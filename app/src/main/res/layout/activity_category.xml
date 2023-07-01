@@ -22,14 +22,15 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_back"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
-                android:text="GoFood"
-                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:text="Loại sản phẩm"
                 android:textColor="#FF5722"
-                android:layout_centerInParent="true"/>
+                android:textSize="30dp"
+                android:textStyle="bold" />
         </RelativeLayout>
         <EditText
             android:visibility="gone"

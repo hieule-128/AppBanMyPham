@@ -5,9 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_centerInParent="true"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
-        android:src="@drawable/img_gofood" />
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/rcq" />
+
+
 </RelativeLayout>
