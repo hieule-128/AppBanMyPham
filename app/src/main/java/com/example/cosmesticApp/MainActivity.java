@@ -148,14 +148,11 @@ public class MainActivity extends AppCompatActivity {
 
                     case 4:
                         replace(new BillFragment());
-
-
                         break;
 
                     case 5:
                         replace(new NotifyFragment());
                         break;
-
                 }
                 return null;
             }
@@ -188,9 +185,6 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
     }
-
-
-
 //    private void status(String stastus){
 //        reference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 //

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "243810751689",
+    "project_id": "cosmesticstoreapp",
+    "storage_bucket": "cosmesticstoreapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243810751689:android:be4c3bfffd28efb684e918",
+        "android_client_info": {
+          "package_name": "com.example.cosmesticApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243810751689-37ssls50dgcm6ebv3l6s5df75ooigplu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cosmesticApp",
+            "certificate_hash": "d3a988258d1c5f6d3f7091904ed6e9013e696b5e"
+          }
+        },
+        {
+          "client_id": "243810751689-o66uoihguqb0hbjvjjegjm67upld3ncb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQu0AbakNpXKl1zovs67TkjEfIsGqRESY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243810751689-o66uoihguqb0hbjvjjegjm67upld3ncb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
