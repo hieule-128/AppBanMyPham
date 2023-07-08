@@ -39,10 +39,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SignInActivity extends AppCompatActivity {
 
-    private Button btnDangNhap, btnDangKy;
+    private Button btnDangNhap;
     private EditText edtEmailUser, edtMatKhauUser;
-    private TextView tvForgotPassword;
-    private CircleImageView cirDangNhapFacebook, cirDangNhapGoogle;
+    private TextView tvForgotPassword, btnDangKy;
     private static final int TIME_DELAY = 2000;
     private static long back_pressed;
     private String sosanh;
@@ -61,9 +60,7 @@ public class SignInActivity extends AppCompatActivity {
         broadcastIntent();                  // Check Internet
         if (NetworkUtil.isNetworkConnected(this)){
             Event();
-
         }
-
     }
 
     private void Event() {
@@ -125,10 +122,8 @@ public class SignInActivity extends AppCompatActivity {
                                                         progressDialog.dismiss();
                                                         Toast.makeText(SignInActivity.this, "Tài khoản hoặc mật khẩu không đúng.\nVui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
                                                     }
-
                                                 }
                                             });
-
                                             break;
                                     }
                                 }
@@ -187,9 +182,6 @@ public class SignInActivity extends AppCompatActivity {
         edtEmailUser = findViewById(R.id.edt_email_user);
         edtMatKhauUser = findViewById(R.id.edt_matkhau_user);
         tvForgotPassword = findViewById(R.id.tv_forgot_password);
-        cirDangNhapFacebook = findViewById(R.id.cir_dangnhap_facebook);
-        cirDangNhapGoogle = findViewById(R.id.cir_dangnhap_google);
-
         progressDialog = new ProgressDialog(this);
     }
 

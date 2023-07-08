@@ -77,24 +77,6 @@ public class SignUpActivity extends AppCompatActivity {
                                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                                         db.collection("IDUser").add(hashMap);
 
-                                        // Realtime Firebase: Tạo 1 database có tên Users, id tự động đặt cho tài khoản
-                                        String username= "any name";
-                                        reference1 = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                        HashMap<String, String> mapRealtime = new HashMap<>();
-                                        mapRealtime.put("iduser", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                        mapRealtime.put("name", username);
-                                        mapRealtime.put("avatar", "default");
-                                        mapRealtime.put("status", "online");
-                                        mapRealtime.put("search", username.toLowerCase());
-                                        reference1.setValue(mapRealtime);
-
-                                        reference2 = FirebaseDatabase.getInstance().getReference("Chatlist").child("WvPK8OV0erKJP8w2KZNp")
-                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                        HashMap<String, String> mapRealtime2 = new HashMap<>();
-                                        mapRealtime2.put("id", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                        reference2.setValue(mapRealtime2);
-
-
                                         Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                         startActivity(intent);
                                         User user = new User();

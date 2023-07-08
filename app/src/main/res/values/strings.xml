@@ -8,5 +8,9 @@
 
     <string name="channel_name">Channel 1</string>
     <string name="channel_description">This is channel 1</string>
+    <string name="cosmetics_store">Cosmetics Store</string>
+    <string name="password">Nhập mật khẩu</string>
+    <string name="Login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
 
 </resources>

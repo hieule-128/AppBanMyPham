@@ -9,5 +9,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorGray">#EEEEEE</color>
     <color name="Orange">#FF5722</color>
-
+    <color name="lightGray">#d9d9d9</color>
+    <color name="darkGray">#27282c</color>
+    <color name="mediumGray">#262523</color>
+    <color name="mistyRose">#ee7d83</color>
+    <color name="paleGreen">#98fb98</color>
+    <color name="mediumSeaGreen">#3cb371</color>
+    <color name="mediumTurquoise">#48d1cc</color>
+    <color name="lightYellow">#fbdcc4</color>
+    <color name="darkRed">#7f1537</color>
+    <color name="morePink">#f2a07b</color>
 </resources>

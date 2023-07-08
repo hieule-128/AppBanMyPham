@@ -31,12 +31,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
         InitWidget();
-
-//        MyReceiver = new MyReceiver();      // Check Internet
-//        broadcastIntent();                  // Check Internet
-//        if (NetworkUtil.isNetworkConnected(this)){
-//
-//        }
         Event();
     }
 
@@ -45,7 +39,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String stremail = edtEmailForgot.getText().toString().trim();
-//                String strpass = edtPassForgot.getText().toString().trim();
                 FirebaseAuth auth = FirebaseAuth.getInstance();
                 auth.sendPasswordResetEmail(stremail)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -69,20 +62,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     private void InitWidget() {
         edtEmailForgot = findViewById(R.id.edt_email_forgot);
-//        edtPassForgot = findViewById(R.id.edt_pass_forgot);
         btnForgot = findViewById(R.id.btn_forgot);
     }
 
-    // Check Internet
-//    public void broadcastIntent() {
-//        registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
-//
-//    }
-//
-//    // Check Internet
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        unregisterReceiver(MyReceiver);
-//    }
 }
