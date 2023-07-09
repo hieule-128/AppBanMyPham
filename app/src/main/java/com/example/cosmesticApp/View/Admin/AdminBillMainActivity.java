@@ -68,10 +68,6 @@ public class AdminBillMainActivity extends AppCompatActivity implements HoaDonVi
             }
         });
 
-
-//        Log.d("position", "iduser là: " + iduser + " + " + "trạng thái là: " + positionStatus);
-//        Log.d("position","trạng thái là: " + positionStatus);
-
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -99,8 +95,6 @@ public class AdminBillMainActivity extends AppCompatActivity implements HoaDonVi
         mlistUser = new ArrayList<>();
         mListStatus = new ArrayList<>();
         mListFilter = new ArrayList<>();
-
-
     }
 
     private void Init() {

@@ -35,7 +35,6 @@ import com.example.cosmesticApp.Models.Product;
 import com.example.cosmesticApp.R;
 import com.example.cosmesticApp.View.CartActivity;
 import com.example.cosmesticApp.View.CategoryActivity;
-import com.example.cosmesticApp.View.ChatActivity;
 import com.example.cosmesticApp.View.DetailSPActivity;
 import com.example.cosmesticApp.View.SearchActivity;
 import com.example.cosmesticApp.my_interface.IClickCTHD;
@@ -203,15 +202,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        imgHomeMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(getContext(), ChatActivity.class);
-                intent2.putExtra("message", 2);
-                startActivity(intent2);
             }
         });
 

@@ -28,13 +28,6 @@
         tools:replace="android:theme">
         <activity android:name="com.example.cosmesticApp.View.CartActivity"></activity>
         <activity android:name="com.example.cosmesticApp.View.OrderSuccessActivity" />
-        <activity
-            android:name="com.example.cosmesticApp.View.ChatActivity"
-            android:exported="true"
-            android:launchMode="singleTask"
-            android:taskAffinity=""
-            android:excludeFromRecents="true"/>
-        <activity android:name="com.example.cosmesticApp.View.MessageActivity" />
         <activity android:name="com.example.cosmesticApp.View.DanhGiaActivity" />
         <activity android:name="com.example.cosmesticApp.View.FavoriteActivity" />
         <activity android:name="com.example.cosmesticApp.View.CommentActivity" />

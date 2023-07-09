@@ -47,10 +47,7 @@ public class AdminUsersActivity extends AppCompatActivity implements UserView {
     private AdminUsersAdapter adapter;
     private ArrayList<User> mlistUser;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     private UserPresenter userPresenter;
-
-    DatabaseReference reference1, reference2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,23 +108,6 @@ public class AdminUsersActivity extends AppCompatActivity implements UserView {
                                                 chinh.put("gioitinh", "");
                                                 chinh.put("avatar", "");
                                                 db.collection("User").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).collection("Profile").add(chinh);
-
-                                                // Realtime Firebase: Tạo 1 database có tên Users, id tự động đặt cho tài khoản
-                                                String username= "any name";
-                                                reference1 = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                                HashMap<String, String> mapRealtime = new HashMap<>();
-                                                mapRealtime.put("iduser", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                                mapRealtime.put("name", username);
-                                                mapRealtime.put("avatar", "default");
-                                                mapRealtime.put("status", "online");
-                                                mapRealtime.put("search", username.toLowerCase());
-                                                reference1.setValue(mapRealtime);
-
-                                                reference2 = FirebaseDatabase.getInstance().getReference("Chatlist").child("WvPK8OV0erKJP8w2KZNp")
-                                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                                HashMap<String, String> mapRealtime2 = new HashMap<>();
-                                                mapRealtime2.put("id", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                                reference2.setValue(mapRealtime2);
 
                                                 Toast.makeText(AdminUsersActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                                                 dialog.cancel();

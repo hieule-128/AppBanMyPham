@@ -4,13 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_admin3">
+    android:background="@drawable/background">
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_marginTop="50dp"
         android:layout_width="250dp"
         android:layout_height="150dp"
-        android:src="@drawable/img_gofood"
+        android:src="@drawable/logo_store"
         android:layout_gravity="center"/>
 
     <androidx.cardview.widget.CardView
@@ -20,7 +20,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="50dp"
         app:cardElevation="5dp">
         <LinearLayout
             android:gravity="center"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:text="Quản lý hóa đơn"
-                android:textColor="#008000"
+                android:textColor="#DBD7E2"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -50,7 +50,7 @@
         android:layout_marginStart="20dp"
         android:id="@+id/cAddProduct"
         app:cardElevation="5dp"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="50dp"
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <LinearLayout
@@ -81,7 +81,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/cAddUser"
         app:cardElevation="5dp"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="50dp"
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <LinearLayout
@@ -105,79 +105,13 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="10dp"
-        android:id="@+id/cChat"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-        <LinearLayout
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_message"
-                app:tint="#E91E63" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Hỗ trợ tư vấn"
-                android:textColor="#008000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:id="@+id/cThongKe"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="5dp">
-
-        <LinearLayout
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="5dp"
-                android:src="@drawable/ic_baseline_pie_chart_24"
-                app:tint="#E91E63" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Thống kê"
-                android:textColor="#008000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-
-
-
-    <androidx.cardview.widget.CardView
         android:layout_marginBottom="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
         android:id="@+id/cSignOut"
         app:cardElevation="5dp"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="50dp"
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <LinearLayout

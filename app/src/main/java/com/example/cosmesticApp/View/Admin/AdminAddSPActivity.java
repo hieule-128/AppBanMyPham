@@ -86,18 +86,6 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
 
         InitWidget();
         Init();
-
-//        // Test: Lấy ra id của hóa đơn từ bảng HoaDon
-//        db.collection("HoaDon").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//            @Override
-//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                for (QueryDocumentSnapshot q: queryDocumentSnapshots){
-//                    ArrayList<String> list = new ArrayList<>();
-//                    list.add(q.getId());
-//                    Log.d("checkid", q.getId());
-//                }
-//            }
-//        });
         Event();
     }
 
@@ -154,7 +142,7 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
                             for (QueryDocumentSnapshot q: queryDocumentSnapshots){
                                 Log.d("checkiduser", q.getString("iduser"));
 
-                                // Từ iduser mà ta có, lấy ra tất cả id_hoadon có id_product là KlUnpxIGoIFkHlvshil2
+                                // Từ iduser mà ta có, lấy ra tất cả id_hoadon có id_product
                                 db.collection("ChitietHoaDon").document(q.getString("iduser")).
                                         collection("ALL").whereEqualTo("id_product", product.getId()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                     @Override
