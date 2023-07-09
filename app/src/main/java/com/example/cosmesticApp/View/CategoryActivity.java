@@ -33,7 +33,7 @@ public class CategoryActivity extends AppCompatActivity {
     private CategoryAdapter categoryAdapter;
     private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private Product product;
-    private ArrayList<Product> arr_MakeUp, arr_PerFume, arr_Hair, arr_Skincare, arr_Body;
+    private ArrayList<Product> arr_makeup, arr_perfume, arr_hair, arr_skincare, arr_body;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,270 +55,170 @@ public class CategoryActivity extends AppCompatActivity {
                 firestore.collection("SanPham").
                         whereEqualTo("loaisp","Trang Điểm").
                         get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                        if(queryDocumentSnapshots.size()>0){
-                            for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                                // lấy id trên firebase
-                                arr_khac.add(new Product(d.getId(),d.getString("tensp"),
-                                        d.getLong("giatien"),d.getString("hinhanh"),
-                                        d.getString("loaisp"),d.getString("mota"),
-                                        d.getLong("soluong"),d.getString("hansudung"),
-                                        d.getLong("type"),d.getString("trongluong")));
-                            }
-                            categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_MakeUp, new IClickOpenBottomSheet() {
-                                @Override
-                                public void onClickOpenBottomSheet(int position) {
+                            @Override
+                            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
+                                if(queryDocumentSnapshots.size()>0){
+                                    for(QueryDocumentSnapshot d : queryDocumentSnapshots){
+                                        // lấy id trên firebase
+                                        arr_makeup.add(new Product(d.getId(),d.getString("tensp"),
+                                                d.getLong("giatien"),d.getString("hinhanh"),
+                                                d.getString("loaisp"),d.getString("mota"),
+                                                d.getLong("soluong"),d.getString("hansudung"),
+                                                d.getLong("type"),d.getString("trongluong")));
+                                    }
+                                    categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_makeup, new IClickOpenBottomSheet() {
+                                        @Override
+                                        public void onClickOpenBottomSheet(int position) {
 
-                                    product = arr_MakeUp.get(position);
-                                    SendData();
+                                            product = arr_makeup.get(position);
+                                            SendData();
+                                        }
+                                    });
+                                    rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
+                                    // Thêm đường phân cách giữa các dòng
+                                    RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
+                                    rcvCategory.addItemDecoration(itemDecoration);
+                                    rcvCategory.setAdapter(categoryAdapter);
                                 }
-                            });
-                            rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
-                            // Thêm đường phân cách giữa các dòng
-                            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
-                            rcvCategory.addItemDecoration(itemDecoration);
-                            rcvCategory.setAdapter(categoryAdapter);
-                        }
 
-                    }
-                });
+                            }
+                        });
                 break;
             case 1:
                 tvCategory.setText("Nước Hoa");
                 firestore.collection("SanPham").
                         whereEqualTo("loaisp","Nước Hoa").
                         get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                        if(queryDocumentSnapshots.size()>0){
-                            for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                                // lấy id trên firebase
-                                arr_micay.add(new Product(d.getId(),d.getString("tensp"),
-                                        d.getLong("giatien"),d.getString("hinhanh"),
-                                        d.getString("loaisp"),d.getString("mota"),
-                                        d.getLong("soluong"),d.getString("hansudung"),
-                                        d.getLong("type"),d.getString("trongluong")));
-                            }
-                            categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_PerFume, new IClickOpenBottomSheet() {
-                                @Override
-                                public void onClickOpenBottomSheet(int position) {
+                            @Override
+                            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
+                                if(queryDocumentSnapshots.size()>0){
+                                    for(QueryDocumentSnapshot d : queryDocumentSnapshots){
+                                        // lấy id trên firebase
+                                        arr_perfume.add(new Product(d.getId(),d.getString("tensp"),
+                                                d.getLong("giatien"),d.getString("hinhanh"),
+                                                d.getString("loaisp"),d.getString("mota"),
+                                                d.getLong("soluong"),d.getString("hansudung"),
+                                                d.getLong("type"),d.getString("trongluong")));
+                                    }
+                                    categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_perfume, new IClickOpenBottomSheet() {
+                                        @Override
+                                        public void onClickOpenBottomSheet(int position) {
 //                                    setBottomSheetDialog();
-                                    product = arr_PerFume.get(position);
-                                    SendData();
+                                            product = arr_perfume.get(position);
+                                            SendData();
+                                        }
+                                    });
+                                    rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
+                                    // Thêm đường phân cách giữa các dòng
+                                    RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
+                                    rcvCategory.addItemDecoration(itemDecoration);
+                                    rcvCategory.setAdapter(categoryAdapter);
                                 }
-                            });
-                            rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
-                            // Thêm đường phân cách giữa các dòng
-                            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
-                            rcvCategory.addItemDecoration(itemDecoration);
-                            rcvCategory.setAdapter(categoryAdapter);
-                        }
 
-                    }
-                });
+                            }
+                        });
                 break;
             case 2:
                 tvCategory.setText("Chăm Sóc Tóc");
                 firestore.collection("SanPham").
                         whereEqualTo("loaisp","Chăm Sóc Tóc").
                         get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                        if(queryDocumentSnapshots.size()>0){
-                            for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                                // lấy id trên firebase
-                                arr_chaosup.add(new Product(d.getId(),d.getString("tensp"),
-                                        d.getLong("giatien"),d.getString("hinhanh"),
-                                        d.getString("loaisp"),d.getString("mota"),
-                                        d.getLong("soluong"),d.getString("hansudung"),
-                                        d.getLong("type"),d.getString("trongluong")));
-                            }
-                            categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_Hair, new IClickOpenBottomSheet() {
-                                @Override
-                                public void onClickOpenBottomSheet(int position) {
-                                    product = arr_Hair.get(position);
-                                    SendData();
+                            @Override
+                            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
+                                if(queryDocumentSnapshots.size()>0){
+                                    for(QueryDocumentSnapshot d : queryDocumentSnapshots){
+                                        // lấy id trên firebase
+                                        arr_hair.add(new Product(d.getId(),d.getString("tensp"),
+                                                d.getLong("giatien"),d.getString("hinhanh"),
+                                                d.getString("loaisp"),d.getString("mota"),
+                                                d.getLong("soluong"),d.getString("hansudung"),
+                                                d.getLong("type"),d.getString("trongluong")));
+                                    }
+                                    categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_hair, new IClickOpenBottomSheet() {
+                                        @Override
+                                        public void onClickOpenBottomSheet(int position) {
+                                            product = arr_hair.get(position);
+                                            SendData();
+                                        }
+                                    });
+                                    rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
+                                    // Thêm đường phân cách giữa các dòng
+                                    RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
+                                    rcvCategory.addItemDecoration(itemDecoration);
+                                    rcvCategory.setAdapter(categoryAdapter);
                                 }
-                            });
-                            rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
-                            // Thêm đường phân cách giữa các dòng
-                            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
-                            rcvCategory.addItemDecoration(itemDecoration);
-                            rcvCategory.setAdapter(categoryAdapter);
-                        }
 
-                    }
-                });
+                            }
+                        });
                 break;
             case 3:
                 tvCategory.setText("Chăm Sóc Da");
                 firestore.collection("SanPham").
                         whereEqualTo("loaisp","Chăm Sóc Da").
                         get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                        if(queryDocumentSnapshots.size()>0){
-                            for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                                // lấy id trên firebase
-                                arr_pizza.add(new Product(d.getId(),d.getString("tensp"),
-                                        d.getLong("giatien"),d.getString("hinhanh"),
-                                        d.getString("loaisp"),d.getString("mota"),
-                                        d.getLong("soluong"),d.getString("hansudung"),
-                                        d.getLong("type"),d.getString("trongluong")));
-                            }
-                            categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_Skincare, new IClickOpenBottomSheet() {
-                                @Override
-                                public void onClickOpenBottomSheet(int position) {
-                                    product = arr_Skincare.get(position);
-                                    SendData();
+                            @Override
+                            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
+                                if(queryDocumentSnapshots.size()>0){
+                                    for(QueryDocumentSnapshot d : queryDocumentSnapshots){
+                                        // lấy id trên firebase
+                                        arr_skincare.add(new Product(d.getId(),d.getString("tensp"),
+                                                d.getLong("giatien"),d.getString("hinhanh"),
+                                                d.getString("loaisp"),d.getString("mota"),
+                                                d.getLong("soluong"),d.getString("hansudung"),
+                                                d.getLong("type"),d.getString("trongluong")));
+                                    }
+                                    categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_skincare, new IClickOpenBottomSheet() {
+                                        @Override
+                                        public void onClickOpenBottomSheet(int position) {
+                                            product = arr_skincare.get(position);
+                                            SendData();
+                                        }
+                                    });
+                                    rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
+                                    // Thêm đường phân cách giữa các dòng
+                                    RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
+                                    rcvCategory.addItemDecoration(itemDecoration);
+                                    rcvCategory.setAdapter(categoryAdapter);
                                 }
-                            });
-                            rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
-                            // Thêm đường phân cách giữa các dòng
-                            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
-                            rcvCategory.addItemDecoration(itemDecoration);
-                            rcvCategory.setAdapter(categoryAdapter);
-                        }
 
-                    }
-                });
+                            }
+                        });
                 break;
             case 4:
                 tvCategory.setText("Chăm Sóc Cơ Thể");
                 firestore.collection("SanPham").
                         whereEqualTo("loaisp","Chăm Sóc Cơ Thể").
                         get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                        if(queryDocumentSnapshots.size()>0){
-                            for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                                // lấy id trên firebase
-                                arr_sandwich.add(new Product(d.getId(),d.getString("tensp"),
-                                        d.getLong("giatien"),d.getString("hinhanh"),
-                                        d.getString("loaisp"),d.getString("mota"),
-                                        d.getLong("soluong"),d.getString("hansudung"),
-                                        d.getLong("type"),d.getString("trongluong")));
-                            }
-                            categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_Body, new IClickOpenBottomSheet() {
-                                @Override
-                                public void onClickOpenBottomSheet(int position) {
-                                    product = arr_Body.get(position);
-                                    SendData();
+                            @Override
+                            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
+                                if(queryDocumentSnapshots.size()>0){
+                                    for(QueryDocumentSnapshot d : queryDocumentSnapshots){
+                                        // lấy id trên firebase
+                                        arr_body.add(new Product(d.getId(),d.getString("tensp"),
+                                                d.getLong("giatien"),d.getString("hinhanh"),
+                                                d.getString("loaisp"),d.getString("mota"),
+                                                d.getLong("soluong"),d.getString("hansudung"),
+                                                d.getLong("type"),d.getString("trongluong")));
+                                    }
+                                    categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_body, new IClickOpenBottomSheet() {
+                                        @Override
+                                        public void onClickOpenBottomSheet(int position) {
+                                            product = arr_body.get(position);
+                                            SendData();
+                                        }
+                                    });
+                                    rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
+                                    // Thêm đường phân cách giữa các dòng
+                                    RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
+                                    rcvCategory.addItemDecoration(itemDecoration);
+                                    rcvCategory.setAdapter(categoryAdapter);
                                 }
-                            });
-                            rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
-                            // Thêm đường phân cách giữa các dòng
-                            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
-                            rcvCategory.addItemDecoration(itemDecoration);
-                            rcvCategory.setAdapter(categoryAdapter);
-                        }
 
-                    }
-                });
+                            }
+                        });
                 break;
-//            case 5:
-//                tvCategory.setText("Đồ uống");
-//                firestore.collection("SanPham").
-//                        whereEqualTo("loaisp","Đồ uống").
-//                        get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-//                        if(queryDocumentSnapshots.size()>0){
-//                            for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-//                                // lấy id trên firebase
-//                                arr_douong.add(new Product(d.getId(),d.getString("tensp"),
-//                                        d.getLong("giatien"),d.getString("hinhanh"),
-//                                        d.getString("loaisp"),d.getString("mota"),
-//                                        d.getLong("soluong"),d.getString("hansudung"),
-//                                        d.getLong("type"),d.getString("trongluong")));
-//                            }
-//                            categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_douong, new IClickOpenBottomSheet() {
-//                                @Override
-//                                public void onClickOpenBottomSheet(int position) {
-//                                    product = arr_douong.get(position);
-//                                    SendData();
-//                                }
-//                            });
-//                            rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
-//                            // Thêm đường phân cách giữa các dòng
-//                            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
-//                            rcvCategory.addItemDecoration(itemDecoration);
-//                            rcvCategory.setAdapter(categoryAdapter);
-//                        }
-//
-//                    }
-//                });
-//                break;
-//            case 6:
-//                tvCategory.setText("Rau");
-//                firestore.collection("SanPham").
-//                        whereEqualTo("loaisp","Rau").
-//                        get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-//                        if(queryDocumentSnapshots.size()>0){
-//                            for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-//                                // lấy id trên firebase
-//                                arr_lau.add(new Product(d.getId(),d.getString("tensp"),
-//                                        d.getLong("giatien"),d.getString("hinhanh"),
-//                                        d.getString("loaisp"),d.getString("mota"),
-//                                        d.getLong("soluong"),d.getString("hansudung"),
-//                                        d.getLong("type"),d.getString("trongluong")));
-//                            }
-//                            categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_lau, new IClickOpenBottomSheet() {
-//                                @Override
-//                                public void onClickOpenBottomSheet(int position) {
-//                                    product = arr_lau.get(position);
-//                                    SendData();
-//                                }
-//                            });
-//                            rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
-//                            // Thêm đường phân cách giữa các dòng
-//                            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
-//                            rcvCategory.addItemDecoration(itemDecoration);
-//                            rcvCategory.setAdapter(categoryAdapter);
-//                        }
-//
-//                    }
-//                });
-//                break;
-//            case 7:
-//                tvCategory.setText("Trái cây");
-////                findViewById(R.id.tv_message_chat).setBackgroundResource(R.drawable.facebook_drawable_chat);
-//                firestore.collection("SanPham").
-//                        whereEqualTo("loaisp","Trái cây").
-//                        get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-//                        if(queryDocumentSnapshots.size()>0){
-//                            for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-//                                // lấy id trên firebase
-//                                arr_doannhanh.add(new Product(d.getId(),d.getString("tensp"),
-//                                        d.getLong("giatien"),d.getString("hinhanh"),
-//                                        d.getString("loaisp"),d.getString("mota"),
-//                                        d.getLong("soluong"),d.getString("hansudung"),
-//                                        d.getLong("type"),d.getString("trongluong")));
-//                            }
-//                            categoryAdapter = new CategoryAdapter(CategoryActivity.this, arr_doannhanh, new IClickOpenBottomSheet() {
-//                                @Override
-//                                public void onClickOpenBottomSheet(int position) {
-//                                    product = arr_doannhanh.get(position);
-//                                    SendData();
-//                                }
-//                            });
-//                            rcvCategory.setLayoutManager(new LinearLayoutManager(CategoryActivity.this,RecyclerView.VERTICAL,false));
-//                            // Thêm đường phân cách giữa các dòng
-//                            RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(CategoryActivity.this, DividerItemDecoration.VERTICAL);
-//                            rcvCategory.addItemDecoration(itemDecoration);
-//                            rcvCategory.setAdapter(categoryAdapter);
-//                        }
-//
-//                    }
-//                });
-//                break;
-//        }
-//    }
+        }
+    }
 
     private void SendData(){
         Intent intent = new Intent(CategoryActivity.this, DetailSPActivity.class);
@@ -341,14 +241,11 @@ public class CategoryActivity extends AppCompatActivity {
         edtSearch = findViewById(R.id.edt_search);
         rcvCategory = findViewById(R.id.rcv_category);
 
-        arr_MakeUp = new ArrayList<>();
-        arr_PerFume = new ArrayList<>();
-        arr_Hair = new ArrayList<>();
-        arr_Skincare = new ArrayList<>();
-        arr_Body = new ArrayList<>();
-//        arr_douong = new ArrayList<>();
-//        arr_lau = new ArrayList<>();
-//        arr_doannhanh = new ArrayList<>();
+        arr_makeup = new ArrayList<>();
+        arr_perfume = new ArrayList<>();
+        arr_hair = new ArrayList<>();
+        arr_skincare = new ArrayList<>();
+        arr_body = new ArrayList<>();
 
     }
 
