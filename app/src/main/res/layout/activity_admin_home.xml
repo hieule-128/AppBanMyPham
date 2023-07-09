@@ -31,14 +31,14 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/bill"
-                app:tint="#E91E63" />
+                app:tint="#786793" />
             <TextView
                 android:id="@+id/txthoadon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:text="Quản lý hóa đơn"
-                android:textColor="#DBD7E2"
+                android:textColor="#786793"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -60,13 +60,13 @@
             android:orientation="horizontal">
             <ImageView
                 android:layout_margin="5dp"
-                app:tint="#E91E63"
+                app:tint="#786793"
                 android:src="@drawable/ic_add_product_admin"
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>
             <TextView
                 android:textStyle="bold"
-                android:textColor="#008000"
+                android:textColor="#786793"
                 android:textSize="18sp"
                 android:text="Quản lý sản phẩm"
                 android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                 android:layout_height="30dp"/>
             <TextView
                 android:textStyle="bold"
-                android:textColor="#008000"
+                android:textColor="#786793"
                 android:textSize="18sp"
                 android:text="Quản lý người dùng"
                 android:layout_width="wrap_content"
@@ -121,13 +121,13 @@
             android:layout_height="match_parent">
             <ImageView
                 android:layout_margin="5dp"
-                app:tint="#E91E63"
+                app:tint="#786793"
                 android:src="@drawable/ic_baseline_logout_24"
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>
             <TextView
                 android:textStyle="bold"
-                android:textColor="#008000"
+                android:textColor="#786793"
                 android:textSize="18sp"
                 android:text="Đăng Xuất"
                 android:layout_width="wrap_content"

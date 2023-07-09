@@ -56,11 +56,6 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdminAddSPActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-
-    private TextView tvTaoMaQR;
-    private ImageView imgQRProduct;
-    private Button btnQRProduct, btnDownQRProduct;
-
     private CircleImageView imgAddLoaiProduct;
     private ImageView btnAddBack, btnRefresh, btnSave;
     private EditText edtTenSP, edtGiatienSP, edtHansudungSP, edtTrongluongSP, edtSoluongSP, edtTypeSP, edtMotaSP;
@@ -249,78 +244,6 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
                 }
             }
         });
-
-        btnQRProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MultiFormatWriter writer = new MultiFormatWriter();
-                try {
-
-                    BitMatrix matrix = writer.encode(product.getId(), BarcodeFormat.QR_CODE, 350, 350);
-                    BarcodeEncoder encoder = new BarcodeEncoder();
-                    Bitmap bitmap = encoder.createBitmap(matrix);
-
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                    byte[] data = baos.toByteArray();
-                    String filename = System.currentTimeMillis() + "";
-                    StorageReference storageReference;
-                    storageReference = FirebaseStorage.getInstance("gs://doan-dc57a.appspot.com/").getReference();
-                    storageReference.child("QRProduct").child(filename + ".jpg").putBytes(data).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-                            if (taskSnapshot.getTask().isSuccessful()) {
-                                storageReference.child("QRProduct").child(filename + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(@NonNull Uri uri) {
-                                        imgQRProduct.setImageBitmap(bitmap);
-                                        HashMap<String, String> maps = new HashMap<>();
-                                        maps.put("idproduct", product.getId());
-                                        maps.put("hinhanh_qr", uri.toString());
-                                        db.collection("QRProduct").add(maps);
-                                    }
-                                });
-
-                            }
-                            dialog.dismiss();
-                        }
-                    });
-
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        btnDownQRProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                db.collection("QRProduct").whereEqualTo("idproduct", product.getId())
-                        .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for (QueryDocumentSnapshot q : queryDocumentSnapshots){
-                            if (q.getString("idproduct").equals(product.getId())){
-                                String getUrl = q.getString("hinhanh_qr");
-                                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(getUrl));
-                                String title = URLUtil.guessFileName(getUrl, null, null);
-                                request.setTitle(title);
-                                request.setDescription("Đang tải File, vui lòng đợi....");
-                                String cookie = CookieManager.getInstance().getCookie(getUrl);
-                                request.addRequestHeader("cookie", cookie);
-                                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
-
-                                DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-                                downloadManager.enqueue(request);
-                                Toast.makeText(AdminAddSPActivity.this, "Đã tải mã QR, kiểm tra trong thư viện ảnh", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-                });
-
-            }
-        });
     }
 
     private void Init() {
@@ -331,41 +254,6 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
         // Nhận data từ AdminProductActivity
         if (getIntent() != null && getIntent().hasExtra("SP")) {
             product = (Product) getIntent().getSerializableExtra("SP");
-        }
-        if (product != null) {
-            btnQRProduct.setVisibility(View.VISIBLE);
-            imgQRProduct.setVisibility(View.VISIBLE);
-            tvTaoMaQR.setVisibility(View.VISIBLE);
-            db.collection("QRProduct").whereEqualTo("idproduct", product.getId())
-                    .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                @Override
-                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                    for (QueryDocumentSnapshot q : queryDocumentSnapshots){
-                        if (q.getString("idproduct").equals(product.getId())){
-                            btnQRProduct.setVisibility(View.GONE);
-                            btnDownQRProduct.setVisibility(View.VISIBLE);
-                            Picasso.get().load(q.getString("hinhanh_qr")).into(imgQRProduct);
-                            tvTaoMaQR.setText("Mã QR sản phẩm");
-                        }
-                    }
-                }
-            });
-
-            edtTrongluongSP.setText(product.getTrongluong());
-            edtMotaSP.setText(product.getMota());
-            edtHansudungSP.setText(product.getHansudung());
-            edtSoluongSP.setText(product.getSoluong() + "");
-            edtGiatienSP.setText(product.getGiatien() + "");
-            edtTenSP.setText(product.getTensp());
-            edtTypeSP.setText(product.getType()+"");
-            btnEdit.setVisibility(View.VISIBLE);
-            btnDelete.setVisibility(View.VISIBLE);
-            btnSave.setVisibility(View.GONE);
-            tvTitle.setText("Edit sản phẩm");
-            if (!TextUtils.isEmpty(product.getHinhanh())) {
-                Picasso.get().load(product.getHinhanh()).into(imgAdd);
-                image = product.getHinhanh();
-            }
         }
 
         db.collection("LoaiProduct").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -432,10 +320,6 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
     }
 
     private void InitWidget() {
-        btnDownQRProduct = findViewById(R.id.btn_down_qr_product);
-        tvTaoMaQR = findViewById(R.id.tv_taomaqr);
-        imgQRProduct = findViewById(R.id.img_qr_product);
-        btnQRProduct = findViewById(R.id.btn_qr_product);
         tvTitle = findViewById(R.id.tv_title);
         imgAddLoaiProduct = findViewById(R.id.img_add_loaiproduct);
         btnAddBack = findViewById(R.id.btn_add_back);
