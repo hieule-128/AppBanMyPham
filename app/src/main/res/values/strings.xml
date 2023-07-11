@@ -12,5 +12,6 @@
     <string name="password">Nhập mật khẩu</string>
     <string name="Login">Đăng nhập</string>
     <string name="register">Đăng ký</string>
+    <string name="update_product">Cập nhật sản phẩm</string>
 
 </resources>

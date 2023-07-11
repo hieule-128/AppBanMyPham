@@ -46,8 +46,6 @@ public class DetailSPActivity extends AppCompatActivity implements BinhLuanView,
 
     private ImageView viewAnimation;
     private View viewEndAnimation;
-
-
     private AppCompatToggleButton toggleButtonFavorite;
     private FloatingActionButton btnAddCartDetail;
     private LinearLayout linearShowAllCmt;
@@ -62,7 +60,6 @@ public class DetailSPActivity extends AppCompatActivity implements BinhLuanView,
     private ArrayList<Binhluan> mListBinhluan;
     private BinhLuanAdapter adapter;
     private Product product;
-
     private BottomSheetDialog bottomSheetDialog;
     private TextView tvTenBottom, tvGiaBottom, tvSoluongBottom, tvMotaBottom;
     private ImageView imgBottom, btnMinusBottom, btnPlusBottom;

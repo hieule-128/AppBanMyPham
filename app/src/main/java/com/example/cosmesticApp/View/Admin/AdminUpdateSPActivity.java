@@ -1,12 +1,6 @@
 package com.example.cosmesticApp.View.Admin;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,12 +8,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.webkit.CookieManager;
-import android.webkit.URLUtil;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -28,6 +19,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
 
 import com.example.cosmesticApp.Models.Product;
 import com.example.cosmesticApp.R;
@@ -45,22 +41,19 @@ import com.squareup.picasso.Picasso;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class AdminAddSPActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private CircleImageView imgAddLoaiProduct;
-    private ImageView btnAddBack, btnRefresh, btnSave;
-    private EditText edtTenSP, edtGiatienSP, edtHansudungSP, edtTrongluongSP, edtSoluongSP, edtTypeSP, edtMotaSP;
-    private ImageView imgAdd;
-    private Button btnDanhmuc, btnDelete;
-    private AppCompatButton btnEdit;
+public class AdminUpdateSPActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    private CircleImageView imgAddCategory;
+    private ImageView btnAddBack, btnEdit, btnDelete;
+    private EditText updateTenSP, updateGiatienSP, updateHansudungSP, updateTrongluongSP, updateSoluongSP, updateTypeSP, updateMotaSP;
+    private ImageView imgEdit;
+    private Button btnDanhmuc;
     private Spinner spinnerDanhMuc;
-    private TextView tvTitle;
-
     private FirebaseFirestore db;
     private List<String> list;
     private Product product;
@@ -72,9 +65,7 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_add_spactivity);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        setContentView(R.layout.activity_admin_update_spactivity);
         InitWidget();
         Init();
         Event();
@@ -88,10 +79,10 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
             }
         });
 
-        imgAddLoaiProduct.setOnClickListener(new View.OnClickListener() {
+        imgAddCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminAddSPActivity.this, AdminAddLoaiSPActivity.class);
+                Intent intent = new Intent(AdminUpdateSPActivity.this, AdminAddLoaiSPActivity.class);
                 intent.putExtra("loaisp", loaisp);
                 startActivity(intent);
             }
@@ -99,25 +90,10 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
 
         btnDanhmuc.setOnClickListener(view -> spinnerDanhMuc.performClick());
         spinnerDanhMuc.setOnItemSelectedListener(this);
-        imgAdd.setOnClickListener(new View.OnClickListener() {
+        imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 pickImage();
-            }
-        });
-
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                edtHansudungSP.setText("");
-                edtTrongluongSP.setText("");
-                edtTenSP.setText("");
-                edtGiatienSP.setText("");
-                edtTypeSP.setText("");
-                edtMotaSP.setText("");
-                edtSoluongSP.setText("");
-                image = "";
-                imgAdd.setImageResource(R.drawable.hair1);
             }
         });
 
@@ -145,7 +121,7 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
                                             db.collection("HoaDon").document(d.getString("id_hoadon")).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    Toast.makeText(AdminAddSPActivity.this, "Xoá sản phẩm thành công!!!", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(AdminUpdateSPActivity.this, "Xoá sản phẩm thành công!!!", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
                                         }
@@ -159,47 +135,9 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
                     setResult(RESULT_OK);
                     finish();
                 }).addOnFailureListener(e -> {
-                    Toast.makeText(AdminAddSPActivity.this, "Xoá sản phẩm thất bại!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminUpdateSPActivity.this, "Xoá sản phẩm thất bại!!!", Toast.LENGTH_SHORT).show();
                 });
 
-            }
-        });
-
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!validate()) {
-                    return;
-                }
-                try {
-                    Product sp = new Product();
-                    sp.setGiatien(Long.parseLong(edtGiatienSP.getText().toString()));
-                    sp.setMota(edtMotaSP.getText().toString());
-                    sp.setHansudung(edtHansudungSP.getText().toString());
-                    sp.setType(Long.parseLong(edtTypeSP.getText().toString()));
-                    sp.setTensp(edtTenSP.getText().toString());
-                    sp.setSoluong(Long.parseLong(edtSoluongSP.getText().toString()));
-                    sp.setTrongluong(edtTrongluongSP.getText().toString());
-                    sp.setLoaisp(spinnerDanhMuc.getSelectedItem().toString());
-                    sp.setHinhanh(image);
-
-                    db.collection("SanPham").add(sp).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(@NonNull DocumentReference documentReference) {
-                            Toast.makeText(AdminAddSPActivity.this, "Thành công!!!", Toast.LENGTH_SHORT).show();
-                            setResult(RESULT_OK);
-                            finish();
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AdminAddSPActivity.this, "Thất bại!!!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }
         });
 
@@ -211,27 +149,27 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
                 }
                 try {
                     Product sp = new Product();
-                    sp.setGiatien(Long.parseLong(edtGiatienSP.getText().toString()));
-                    sp.setMota(edtMotaSP.getText().toString());
-                    sp.setHansudung(edtHansudungSP.getText().toString());
-                    sp.setType(Long.parseLong(edtTypeSP.getText().toString()));
-                    sp.setTensp(edtTenSP.getText().toString());
-                    sp.setSoluong(Long.parseLong(edtSoluongSP.getText().toString()));
-                    sp.setTrongluong(edtTrongluongSP.getText().toString());
+                    sp.setGiatien(Long.parseLong(updateGiatienSP.getText().toString()));
+                    sp.setMota(updateMotaSP.getText().toString());
+                    sp.setHansudung(updateHansudungSP.getText().toString());
+                    sp.setType(Long.parseLong(updateTypeSP.getText().toString()));
+                    sp.setTensp(updateTenSP.getText().toString());
+                    sp.setSoluong(Long.parseLong(updateSoluongSP.getText().toString()));
+                    sp.setTrongluong(updateTrongluongSP.getText().toString());
                     sp.setLoaisp(spinnerDanhMuc.getSelectedItem().toString());
                     sp.setHinhanh(image);
                     db.collection("SanPham").document(product.getId()).set(sp)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(@NonNull Void unused) {
-                                    Toast.makeText(AdminAddSPActivity.this, "Cập nhật sản phẩm thành công!!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AdminUpdateSPActivity.this, "Cập nhật sản phẩm thành công!!!", Toast.LENGTH_SHORT).show();
                                     setResult(RESULT_OK);
                                     finish();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(AdminAddSPActivity.this, "Cập nhật sản phẩm thất bại!!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminUpdateSPActivity.this, "Cập nhật sản phẩm thất bại!!!", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } catch (Exception e) {
@@ -258,7 +196,7 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
                     list.add(q.getString("tenloai"));
                     Log.d("TAG", "onSuccess: " + q.getString("tenloai"));
                 }
-                ArrayAdapter arrayAdapter = new ArrayAdapter(AdminAddSPActivity.this, android.R.layout.simple_list_item_1, list);
+                ArrayAdapter arrayAdapter = new ArrayAdapter(AdminUpdateSPActivity.this, android.R.layout.simple_list_item_1, list);
                 spinnerDanhMuc.setAdapter(arrayAdapter);
                 if (list.size() > 0) {
                     spinnerDanhMuc.setSelection(1);
@@ -274,7 +212,14 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
 
             }
         });
-
+        updateTenSP.setText(product.getTensp());
+        updateGiatienSP.setText(NumberFormat.getInstance().format(product.getGiatien()));
+        updateSoluongSP.setText(NumberFormat.getInstance().format(product.getSoluong()));
+        updateHansudungSP.setText(product.getHansudung());
+        updateTrongluongSP.setText(product.getTrongluong());
+        updateTypeSP.setText(product.getLoaisp());
+        updateMotaSP.setText(product.getMota());
+        Picasso.get().load(product.getHinhanh()).into(imgAddCategory);
     }
 
     private boolean validate() {
@@ -282,31 +227,31 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
             Toast.makeText(this, "Vui lòng chọn hình ảnh", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(edtGiatienSP.getText().toString())) {
+        if (TextUtils.isEmpty(updateGiatienSP.getText().toString())) {
             Toast.makeText(this, "Vui lòng nhập giá tiền", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(edtTenSP.getText().toString())) {
+        if (TextUtils.isEmpty(updateTenSP.getText().toString())) {
             Toast.makeText(this, "Vui lòng nhập tên sản phẩm", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(edtHansudungSP.getText().toString())) {
+        if (TextUtils.isEmpty(updateHansudungSP.getText().toString())) {
             Toast.makeText(this, "Vui lòng nhập hạn sử dụng", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(edtTrongluongSP.getText().toString())) {
+        if (TextUtils.isEmpty(updateTrongluongSP.getText().toString())) {
             Toast.makeText(this, "Vui lòng nhập Trọng lượng", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(edtSoluongSP.getText().toString())) {
+        if (TextUtils.isEmpty(updateSoluongSP.getText().toString())) {
             Toast.makeText(this, "Vui lòng nhập số lượng", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(edtTypeSP.getText().toString())) {
+        if (TextUtils.isEmpty(updateTypeSP.getText().toString())) {
             Toast.makeText(this, "Vui lòng nhập type", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(edtMotaSP.getText().toString())) {
+        if (TextUtils.isEmpty(updateMotaSP.getText().toString())) {
             Toast.makeText(this, "Vui lòng nhập mô tả", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -315,22 +260,19 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
     }
 
     private void InitWidget() {
-        tvTitle = findViewById(R.id.tv_title);
-        imgAddLoaiProduct = findViewById(R.id.img_add_loaiproduct);
+        imgAddCategory = findViewById(R.id.img_add_category);
         btnAddBack = findViewById(R.id.btn_add_back);
-        btnRefresh = findViewById(R.id.btn_refresh);
-        btnSave = findViewById(R.id.btn_save);
-        edtTenSP = findViewById(R.id.edt_tensp);
-        edtGiatienSP = findViewById(R.id.edt_giatiensp);
-        edtHansudungSP = findViewById(R.id.edt_hansudungsp);
-        edtTrongluongSP = findViewById(R.id.edt_trongluongsp);
-        edtSoluongSP = findViewById(R.id.edt_soluongsp);
-        edtTypeSP = findViewById(R.id.edt_typesp);
-        edtMotaSP = findViewById(R.id.edt_motasp);
-        imgAdd = findViewById(R.id.image_add);
-        btnDanhmuc = findViewById(R.id.btn_danhmuc);
-        btnDelete = findViewById(R.id.btn_delete);
         btnEdit = findViewById(R.id.btn_edit);
+        btnDelete = findViewById(R.id.btn_delete);
+        updateTenSP = findViewById(R.id.product_update);
+        updateGiatienSP = findViewById(R.id.product_price);
+        updateHansudungSP = findViewById(R.id.date_product);
+        updateTrongluongSP = findViewById(R.id.quality_product);
+        updateSoluongSP = findViewById(R.id.qty_product);
+        updateTypeSP = findViewById(R.id.type_product);
+        updateMotaSP = findViewById(R.id.des_product);
+        imgEdit = findViewById(R.id.image_edit);
+        btnDanhmuc = findViewById(R.id.btn_category);
         spinnerDanhMuc = findViewById(R.id.spinner_danhmuc);
 
         // Dialog
@@ -341,7 +283,6 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
         dialog.setIndeterminate(true);
         dialog.setCanceledOnTouchOutside(false);
     }
-
 
     private void pickImage() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -389,11 +330,11 @@ public class AdminAddSPActivity extends AppCompatActivity implements AdapterView
                             storageReference.child("Profile").child(filename + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(@NonNull Uri uri) {
-                                    imgAdd.setImageBitmap(bitmap);
+                                    imgEdit.setImageBitmap(bitmap);
                                     image = uri.toString();
                                 }
                             });
-                            Toast.makeText(AdminAddSPActivity.this, "Thành công", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminUpdateSPActivity.this, "Thành công", Toast.LENGTH_SHORT).show();
                         }
                         dialog.dismiss();
                     }

@@ -50,7 +50,7 @@
         <activity android:name="com.example.cosmesticApp.View.Admin.AdminAddLoaiSPActivity" />
         <activity android:name="com.example.cosmesticApp.View.Admin.AdminAddSPActivity" />
         <activity android:name="com.example.cosmesticApp.View.Admin.AdminProductActivity" />
-        <activity android:name="com.example.cosmesticApp.View.Admin.AdminChartBillActivity" />
+        <activity android:name="com.example.cosmesticApp.View.Admin.AdminUpdateSPActivity" />
         <activity
             android:name="com.example.cosmesticApp.View.Admin.AdminBillMainActivity"
             android:exported="true" />

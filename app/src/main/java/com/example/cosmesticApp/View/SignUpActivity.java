@@ -24,8 +24,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
@@ -37,8 +35,6 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText edtSignUpEmail, edtSignUpPassword, edtSignUpConfirm;
     private Button btnSignUpDangKy;
     private TextView tvLoginUser;
-
-    DatabaseReference reference1, reference2;
 
     // Check Internet
     private BroadcastReceiver MyReceiver = null;

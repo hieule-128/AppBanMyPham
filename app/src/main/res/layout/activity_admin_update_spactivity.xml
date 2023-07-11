@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/layout_add"
+            android:id="@+id/layout_update"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#ee7d83"
@@ -30,31 +30,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Thêm sản phẩm"
+                android:text="@string/update_product"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 
             <ImageView
-                android:id="@+id/btn_refresh"
+                android:id="@+id/btn_edit"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="100dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_refresh_black_24dp" />
+                android:src="@drawable/btn_update"
+                app:tint="#FFFFFF" />
 
             <ImageView
-                android:id="@+id/btn_save"
+                android:id="@+id/btn_delete"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_check_black_24dp" />
+                android:src="@drawable/baseline_delete_24"
+                app:tint="#FFFFFF"/>
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/image_add"
+            android:id="@+id/image_edit"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_marginStart="10dp"
@@ -63,8 +65,8 @@
             android:scaleType="fitXY"
             android:src="@drawable/hair1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/edt_tensp"
-            app:layout_constraintTop_toBottomOf="@id/layout_add" />
+            app:layout_constraintStart_toEndOf="@+id/product_update"
+            app:layout_constraintTop_toBottomOf="@id/layout_update" />
 
         <TextView
             android:layout_width="150dp"
@@ -75,17 +77,17 @@
             android:textColor="#ee7d83"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_add" />
+            app:layout_constraintTop_toBottomOf="@id/layout_update" />
 
         <EditText
-            android:id="@+id/edt_tensp"
+            android:id="@+id/product_update"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="32dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_add" />
+            app:layout_constraintTop_toBottomOf="@id/layout_update" />
 
         <TextView
             android:layout_width="120dp"
@@ -96,10 +98,10 @@
             android:textColor="#ee7d83"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edt_tensp" />
+            app:layout_constraintTop_toBottomOf="@id/product_update" />
 
         <EditText
-            android:id="@+id/edt_giatiensp"
+            android:id="@+id/product_price"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -107,7 +109,7 @@
             android:inputType="number"
             android:textColor="#F44336"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edt_tensp" />
+            app:layout_constraintTop_toBottomOf="@id/product_update" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -117,7 +119,7 @@
             android:orientation="vertical"
             android:padding="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edt_giatiensp">
+            app:layout_constraintTop_toBottomOf="@id/product_price">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -147,7 +149,7 @@
                         android:textSize="15sp" />
 
                     <Button
-                        android:id="@+id/btn_danhmuc"
+                        android:id="@+id/btn_category"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_marginStart="40dp"
@@ -170,7 +172,7 @@
                 </LinearLayout>
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/img_add_loaiproduct"
+                    android:id="@+id/img_add_category"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
@@ -193,8 +195,7 @@
                     android:textSize="15sp" />
 
                 <EditText
-
-                    android:id="@+id/edt_hansudungsp"
+                    android:id="@+id/date_product"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -217,7 +218,7 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/edt_trongluongsp"
+                    android:id="@+id/quality_product"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -239,7 +240,7 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/edt_soluongsp"
+                    android:id="@+id/qty_product"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -263,7 +264,7 @@
                     android:textSize="15sp" />
 
                 <EditText
-                    android:id="@+id/edt_typesp"
+                    android:id="@+id/type_product"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -292,7 +293,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/edt_motasp"
+                    android:id="@+id/des_product"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -310,30 +311,6 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_delete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_weight="1"
-                    android:visibility="gone"
-                    android:text="Xoá" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_weight="1"
-                    android:visibility="gone"
-                    android:text="Lưu" />
             </LinearLayout>
 
         </LinearLayout>

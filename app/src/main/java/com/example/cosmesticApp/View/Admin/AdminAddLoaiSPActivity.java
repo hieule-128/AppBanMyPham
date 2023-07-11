@@ -164,7 +164,7 @@ public class AdminAddLoaiSPActivity extends AppCompatActivity {
                 byte[] datas = baos.toByteArray();
                 String filename = System.currentTimeMillis() + "";
                 StorageReference storageReference;
-                storageReference = FirebaseStorage.getInstance("gs://doan-dc57a.appspot.com/").getReference();
+                storageReference = FirebaseStorage.getInstance("gs://cosmesticstoreapp.appspot.com/").getReference();
                 storageReference.child("Profile").child(filename + ".jpg").putBytes(datas).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot) {

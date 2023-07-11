@@ -45,8 +45,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -86,9 +84,6 @@ public class ProfileFragment extends Fragment {
     private  String key = "";
 
     private boolean reloadData = false;
-
-    DatabaseReference reference;
-    FirebaseUser firebaseUser;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -347,14 +342,6 @@ public class ProfileFragment extends Fragment {
 
                     }
                 });
-
-                // Import vào Realtime của Firebase
-                reference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                HashMap<String, Object> map = new HashMap<>();
-                map.put("iduser", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                map.put("name", strFullName);
-                map.put("search", strFullName.toLowerCase());
-                reference.updateChildren(map);
             }
         });
 
@@ -461,7 +448,7 @@ public class ProfileFragment extends Fragment {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                 byte[] datas = baos.toByteArray();
                 String filename = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                storageReference= FirebaseStorage.getInstance("gs://doan-dc57a.appspot.com/").getReference();
+                storageReference= FirebaseStorage.getInstance("gs://cosmesticstoreapp.appspot.com/").getReference();
                 storageReference.child("Profile").child(filename+".jpg").putBytes(datas).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
@@ -479,12 +466,6 @@ public class ProfileFragment extends Fragment {
                                             }
                                         }
                                     });
-
-                                    // update vào realtime database của firebase
-                                    reference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                    HashMap<String, Object> map = new HashMap<>();
-                                    map.put("avatar", uri.toString());
-                                    reference.updateChildren(map);
                                 }
                             });
                         }

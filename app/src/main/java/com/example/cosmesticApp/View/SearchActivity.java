@@ -38,7 +38,7 @@ import java.util.Locale;
 public class SearchActivity extends AppCompatActivity implements ProductView, StoryView {
 
     private SwipeRefreshLayout swipeSearch;
-    private ImageView imgMic, imgQRCode;
+    private ImageView imgMic;
     private ImageView imgBackSearch;
     private SearchView searchView;
     private RecyclerView rcvSearch, rcvLichSuSearch;
@@ -89,19 +89,6 @@ public class SearchActivity extends AppCompatActivity implements ProductView, St
             }
         });
 
-        imgQRCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                ScanOptions scanOptions = new ScanOptions();
-                scanOptions.setPrompt("Đưa mã QR của bạn vào máy ảnh");
-                scanOptions.setBeepEnabled(true);
-                scanOptions.setOrientationLocked(true);
-                scanOptions.setCaptureActivity(CaptureAct.class);
-                barLaucher.launch(scanOptions);
-            }
-        });
-
         swipeSearch.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -123,27 +110,6 @@ public class SearchActivity extends AppCompatActivity implements ProductView, St
         });
 
     }
-    ActivityResultLauncher<ScanOptions> barLaucher = registerForActivityResult(new ScanContract(), result ->
-    {
-        // Nếu quét dc mã QR và ngược lại:
-       if (result.getContents() != null){
-           try {
-               for (Product product: mlistsearch){
-                   if(result.getContents().equals(product.getId())){
-                       Intent intent = new Intent(SearchActivity.this, DetailSPActivity.class);
-                       intent.putExtra("search", product);
-                       startActivity(intent);
-                   }
-               }
-
-           } catch (Exception e){
-                e.printStackTrace();
-           }
-
-       } else {
-           Toast.makeText(this, "Hủy quét mã", Toast.LENGTH_SHORT).show();
-       }
-    });
 
     private void StorySearch(String text){
         HashMap<String,String> hashMap =  new HashMap<>();
@@ -155,7 +121,6 @@ public class SearchActivity extends AppCompatActivity implements ProductView, St
     private void InitWidget() {
 
         swipeSearch = findViewById(R.id.swipe_search);
-        imgQRCode = findViewById(R.id.img_qrcode);
         imgMic = findViewById(R.id.img_mic);
         imgBackSearch = findViewById(R.id.img_back_search);
         searchView = findViewById(R.id.search_view);
@@ -218,12 +183,6 @@ public class SearchActivity extends AppCompatActivity implements ProductView, St
                 return true;
             }
         });
-
-
-//        AutoTextAdapter autoTextAdapter = new AutoTextAdapter(this, R.layout.custom_dong_auto_text, mlistAuto);
-//        autoCompleteTextView.setAdapter(autoTextAdapter);
-
-
 
     }
 

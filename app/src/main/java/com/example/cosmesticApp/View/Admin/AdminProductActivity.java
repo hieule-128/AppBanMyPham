@@ -83,7 +83,7 @@ public class AdminProductActivity extends AppCompatActivity {
                         @Override
                         public void onClickCTHD(int pos) {
                             Product product = mlistProduct.get(pos);
-                            Intent intent = new Intent(AdminProductActivity.this, AdminAddSPActivity.class);
+                            Intent intent = new Intent(AdminProductActivity.this, AdminUpdateSPActivity.class);
                             intent.putExtra("SP",product);
                             startActivity(intent);
                         }
@@ -142,7 +142,7 @@ public class AdminProductActivity extends AppCompatActivity {
                                                 @Override
                                                 public void onClickCTHD(int pos) {
                                                     Product product = mlistProduct.get(pos);
-                                                    Intent intent = new Intent(AdminProductActivity.this, AdminAddSPActivity.class);
+                                                    Intent intent = new Intent(AdminProductActivity.this, AdminUpdateSPActivity.class);
                                                     intent.putExtra("SP",product);
                                                     startActivity(intent);
                                                 }

@@ -35,11 +35,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -370,46 +365,6 @@ public class CartActivity extends AppCompatActivity implements GioHangView {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(rcvGioHang);
     }
-    public void DatHangGuiTinNhan(){
-
-
-        // Realtime Database
-        // Khi đặt hàng xong thì người dùng sẽ được gửi 1 tin nhắn tự động từ tk admin
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("sender", "hFycG828Ub1x2ujCABcL");  // Người gửi đang fix cứng là id của admin
-        map.put("receiver", FirebaseAuth.getInstance().getCurrentUser().getUid());
-        String donhang = "";
-        for (Product product: listGiohang){
-            donhang += product.getTensp() + " x " + product.getSoluong() + "\n";
-        }
-        String mess = "Đơn hàng của bạn: " + "\n" + donhang + "\n" + "Ngày đặt: " + ngaydat + "\n" + "Địa chỉ: " + diachi + "\n" + "SĐT: " + sdt
-                + "\n" + "Người nhận: " + hoten + "\n" + "Phương thức thanh toán: " + phuongthuc
-                + "\n" + "Tổng tiền: " + tienthanhtoan;
-        map.put("message", mess);
-        map.put("isseen", false);
-
-        reference.child("Chat").push().setValue(map);
-
-        // Add user to chat fragment
-        DatabaseReference chatRef = FirebaseDatabase.getInstance().getReference("Chatlist")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("hFycG828Ub1x2ujCABcL");
-
-        chatRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (!snapshot.exists()){
-                    chatRef.child("id").setValue("hFycG828Ub1x2ujCABcL");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
     @Override
     public void OnSucess() {
@@ -479,7 +434,7 @@ public class CartActivity extends AppCompatActivity implements GioHangView {
         JSONObject objExtraData = new JSONObject();
         try {
             objExtraData.put("site_code", "008");
-            objExtraData.put("site_name", "Thanh Toán Food");
+            objExtraData.put("site_name", "Thanh Toán Đơn hàng");
             objExtraData.put("screen_code", 0);
             objExtraData.put("screen_name", "Đặc Biệt");
             String name ="";
