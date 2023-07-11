@@ -30,7 +30,7 @@
                 android:id="@+id/img_product"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/food1"
+                android:background="@drawable/hair1"
                 android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
@@ -50,7 +50,7 @@
             android:layout_marginEnd="4dp"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="PC 2021 Asus"
+            android:text="Test"
             android:textColor="#228b22"
             android:textSize="18sp"
             android:textStyle="bold"/>

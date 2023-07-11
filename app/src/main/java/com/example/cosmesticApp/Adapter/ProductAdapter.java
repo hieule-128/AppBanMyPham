@@ -52,9 +52,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }else if(type ==3){
             view = LayoutInflater.from(context).inflate(R.layout.dong_do_uong,parent,false);
         }else if(type ==4){
-            view = LayoutInflater.from(context).inflate(R.layout.dong_sp_hanquoc,parent,false);
+            view = LayoutInflater.from(context).inflate(R.layout.dong_sp2,parent,false);
         }else if(type ==5) {
-            view = LayoutInflater.from(context).inflate(R.layout.dong_sp_micay, parent, false);
+            view = LayoutInflater.from(context).inflate(R.layout.dong_sp4, parent, false);
         }
         else {
             view = LayoutInflater.from(context).inflate(R.layout.dong_giohang,parent,false);
