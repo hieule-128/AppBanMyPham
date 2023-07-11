@@ -119,9 +119,9 @@ public class CategoryActivity extends AppCompatActivity {
                         });
                 break;
             case 2:
-                tvCategory.setText("Chăm Sóc Tóc");
+                tvCategory.setText("Chăm Sóc Cơ Thể");
                 firestore.collection("SanPham").
-                        whereEqualTo("loaisp","Chăm Sóc Tóc").
+                        whereEqualTo("loaisp","Chăm Sóc Cơ Thể").
                         get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
@@ -152,9 +152,9 @@ public class CategoryActivity extends AppCompatActivity {
                         });
                 break;
             case 3:
-                tvCategory.setText("Chăm Sóc Da");
+                tvCategory.setText("Chăm Sóc Tóc");
                 firestore.collection("SanPham").
-                        whereEqualTo("loaisp","Chăm Sóc Da").
+                        whereEqualTo("loaisp","Chăm Sóc Tóc").
                         get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
@@ -185,9 +185,9 @@ public class CategoryActivity extends AppCompatActivity {
                         });
                 break;
             case 4:
-                tvCategory.setText("Chăm Sóc Cơ Thể");
+                tvCategory.setText("Chăm Sóc Da");
                 firestore.collection("SanPham").
-                        whereEqualTo("loaisp","Chăm Sóc Cơ Thể").
+                        whereEqualTo("loaisp","Chăm Sóc Da").
                         get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {

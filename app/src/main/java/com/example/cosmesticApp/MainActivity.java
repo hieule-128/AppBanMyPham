@@ -106,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation_Main.add(new MeowBottomNavigation.Model(2, R.drawable.ic_profile));
         bottomNavigation_Main.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_favorite_24));
         bottomNavigation_Main.add(new MeowBottomNavigation.Model(4, R.drawable.ic_bill));
-        bottomNavigation_Main.add(new MeowBottomNavigation.Model(5, R.drawable.ic_contact));
 
 //        bottomNavigation_Main.setCount(3, "10");
         bottomNavigation_Main.show(1,true);
@@ -148,10 +147,6 @@ public class MainActivity extends AppCompatActivity {
 
                     case 4:
                         replace(new BillFragment());
-                        break;
-
-                    case 5:
-                        replace(new NotifyFragment());
                         break;
                 }
                 return null;

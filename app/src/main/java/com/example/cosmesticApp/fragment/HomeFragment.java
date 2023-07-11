@@ -103,7 +103,6 @@ public class HomeFragment extends Fragment {
         Event();
         if (NetworkUtil.isNetworkConnected(getContext())){
             LoadInfor();
-            Banner();
             InitProduct();
             GetDataDSSanPham();
             GetDataSPNoiBat();
@@ -499,48 +498,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-    private void Banner() {
-        arrayList = new ArrayList<>();
-        firestore= FirebaseFirestore.getInstance();
-        firestore.collection("Banner").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                    arrayList.add(d.getString("hinhanh"));
-                }
-                bannerAdapter = new BannerAdapter(getContext(), arrayList, new IClickCTHD() {
-                    @Override
-                    public void onClickCTHD(int pos) {
-//                        String s = arrayList.get(pos);
-//                        Toast.makeText(getContext(), "clicked: " + s, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getContext(), SearchActivity.class);
-                        startActivity(intent);
-                    }
-                });
-                viewPager.setAdapter(bannerAdapter);
-                circleIndicator.setViewPager(viewPager);
-                bannerAdapter.registerDataSetObserver(circleIndicator.getDataSetObserver());
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    //3s sang 1 banner khác
-                    public void run() {
-                        int k=viewPager.getCurrentItem();
-                        if(k>=arrayList.size()-1){
-                            k  = 0;
-                        }else{
-                            k++;
-                        }
-                        handler.postDelayed(this,2000);
-                        viewPager.setCurrentItem(k,true);
-
-                    }
-                },2000);
-
-            }
-        });
-    }
-
     private void LoadInfor() {
         tvEmailHome.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
         firestore.collection("User").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -573,14 +530,10 @@ public class HomeFragment extends Fragment {
         tvNumberCart = view.findViewById(R.id.tv_number_cart);
         imgHomeMessage = view.findViewById(R.id.img_home_message);
         edtSearchHome = view.findViewById(R.id.edt_search_home);
-
         toolbarHome = view.findViewById(R.id.toolbar_home);
         cirAvatarHome = view.findViewById(R.id.cir_avatar_home);
         tvNameHome = view.findViewById(R.id.tv_name_home);
         tvEmailHome = view.findViewById(R.id.tv_email_home);
-        viewPager = view.findViewById(R.id.viewpager);
-        circleIndicator = view.findViewById(R.id.circle_indicator);
-
         rcvLoaiProduct = view.findViewById(R.id.rcv_loai_product);
         loaiProductAdapter = new LoaiProductAdapter();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -599,9 +552,6 @@ public class HomeFragment extends Fragment {
         rcvSPDoUong = view.findViewById(R.id.rcv_sp_douong);
         rcvSPHQ = view.findViewById(R.id.rcv_sp_hanquoc);
         rcvSPMC = view.findViewById(R.id.rcv_sp_micay);
-        rcvSPYT = view.findViewById(R.id.rcv_sp_yeuthich);
-        rcvSPLau = view.findViewById(R.id.rcv_sp_lau);
-        rcvSPGY = view.findViewById(R.id.rcv_sp_goiy);
 
     }
 
