@@ -38,7 +38,7 @@
         android:layout_below="@+id/mnb"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:background="@drawable/rcq" />
+        android:background="@drawable/makeup" />
 
     <EditText
         android:id="@+id/edt_them_loai"

@@ -109,9 +109,6 @@ public class HomeFragment extends Fragment {
             GetDataSPDoUong();
             GetDataSPHanQuoc();
             GetDataSPMiCay();
-            GetDataSPYeuThich();
-            GetDataSPLau();
-            GetDataSPGoiY();
             LoadFavorite();
         }
 
@@ -275,7 +272,7 @@ public class HomeFragment extends Fragment {
     }
 
 
-    // Sản phẩm nổi bật
+    // Sản phẩm nước hoa
     public  void  GetDataSPNoiBat(){
         firestore.collection("SanPham").
                 whereEqualTo("type",2).
@@ -305,7 +302,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    // Sản phẩm đồ uống
+    // Sản phẩm body
     public  void  GetDataSPDoUong(){
         firestore.collection("SanPham").
                 whereEqualTo("type",3).
@@ -338,7 +335,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    // Sản phẩm Hàn Quốc
+    // Sản phẩm tóc
     public  void  GetDataSPHanQuoc(){
         firestore.collection("SanPham").
                 whereEqualTo("type",4).
@@ -370,7 +367,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    // Sản phẩm Mì cay
+    // Sản phẩm chăm sóc da
     public  void  GetDataSPMiCay(){
         firestore.collection("SanPham").
                 whereEqualTo("type",5).
@@ -401,102 +398,6 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    // Sản phẩm Yêu thích
-    public  void  GetDataSPYeuThich(){
-        firestore.collection("SanPham").
-                whereEqualTo("type",6).
-                get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                if(queryDocumentSnapshots.size()>0){
-                    for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                        // lấy id trên firebase
-                        arr_sp_yt.add(new Product(d.getId(),d.getString("tensp"),
-                                d.getLong("giatien"),d.getString("hinhanh"),
-                                d.getString("loaisp"),d.getString("mota"),
-                                d.getLong("soluong"),d.getString("hansudung"),
-                                d.getLong("type"),d.getString("trongluong")));
-                    }
-                    productYTAdapter = new ProductAdapter(getContext(), arr_sp_yt, 6, new IClickOpenBottomSheet() {
-                        @Override
-                        public void onClickOpenBottomSheet(int position) {
-                            // Do something
-                            product = arr_sp_yt.get(position);
-                            TruyenData();
-                        }
-                    });
-                    rcvSPYT.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
-                    rcvSPYT.setAdapter(productYTAdapter);
-                }
-
-            }
-        });
-    }
-    // Sản phẩm Lẩu
-    public  void  GetDataSPLau(){
-        firestore.collection("SanPham").
-                whereEqualTo("type",7).
-                get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                if(queryDocumentSnapshots.size()>0){
-                    for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                        // lấy id trên firebase
-                        arr_sp_lau.add(new Product(d.getId(),d.getString("tensp"),
-                                d.getLong("giatien"),d.getString("hinhanh"),
-                                d.getString("loaisp"),d.getString("mota"),
-                                d.getLong("soluong"),d.getString("hansudung"),
-                                d.getLong("type"),d.getString("trongluong")));
-                    }
-                    productLauAdapter = new ProductAdapter(getContext(), arr_sp_lau, 7, new IClickOpenBottomSheet() {
-                        @Override
-                        public void onClickOpenBottomSheet(int position) {
-
-                            // Do something
-                            product = arr_sp_lau.get(position);
-                            TruyenData();
-                        }
-                    });
-                    rcvSPLau.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
-                    rcvSPLau.setAdapter(productLauAdapter);
-                }
-
-            }
-        });
-    }
-    // Sản phẩm Gợi ý
-    public  void  GetDataSPGoiY(){
-        firestore.collection("SanPham").
-                whereEqualTo("type",8).
-                get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots) {
-                if(queryDocumentSnapshots.size()>0){
-                    for(QueryDocumentSnapshot d : queryDocumentSnapshots){
-                        // lấy id trên firebase
-                        arr_sp_gy.add(new Product(d.getId(),d.getString("tensp"),
-                                d.getLong("giatien"),d.getString("hinhanh"),
-                                d.getString("loaisp"),d.getString("mota"),
-                                d.getLong("soluong"),d.getString("hansudung"),
-                                d.getLong("type"),d.getString("trongluong")));
-                    }
-                    productGYAdapter = new ProductAdapter(getContext(), arr_sp_gy, 8, new IClickOpenBottomSheet() {
-                        @Override
-                        public void onClickOpenBottomSheet(int position) {
-
-                            // Do something
-                            product = arr_sp_gy.get(position);
-                            TruyenData();
-                        }
-                    });
-                    rcvSPGY.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-                    rcvSPGY.setAdapter(productGYAdapter);
-                }
-
-            }
-        });
-    }
-
 
     private void LoadInfor() {
         tvEmailHome.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());

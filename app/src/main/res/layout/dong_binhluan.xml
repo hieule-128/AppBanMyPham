@@ -32,14 +32,14 @@
                     android:src="@drawable/ic_user"/>
 
                 <TextView
-                    android:maxLines="1"
-                    android:singleLine="true"
                     android:id="@+id/tv_binhluan"
-                    android:layout_marginStart="10dp"
-                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Đồ ăn rất ngon, sẽ quay lại ăn nhiều lần nữa :)))"/>
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Chất lượng sản phẩm tôts, sẽ quay lại mua hàng" />
             </LinearLayout>
             <LinearLayout
                 android:layout_marginEnd="20dp"

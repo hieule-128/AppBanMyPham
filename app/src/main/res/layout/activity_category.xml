@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Loại sản phẩm"
-                android:textColor="#FF5722"
+                android:textColor="@color/mistyRose"
                 android:textSize="30dp"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -71,14 +71,15 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:layout_marginStart="20dp"/>
+
             <TextView
                 android:id="@+id/tv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đồ uống"
+                android:text="Chăm Sóc Da"
+                android:textColor="@color/mistyRose"
                 android:textSize="20dp"
-                android:textColor="#FF5722"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <RelativeLayout
