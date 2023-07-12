@@ -413,7 +413,7 @@ public class CartActivity extends AppCompatActivity implements GioHangView {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        eventValue.put("merchantname", "Afforda Company - Dang Ngoc Thang"); //Tên đối tác. được đăng ký tại https://business.momo.vn. VD: Google, Apple, Tiki , CGV Cinemas
+        eventValue.put("merchantname", "Afforda Company - Pham Thi Huong"); //Tên đối tác. được đăng ký tại https://business.momo.vn. VD: Google, Apple, Tiki , CGV Cinemas
         eventValue.put("merchantcode", "MOMO1NRV20220112"); //Mã đối tác, được cung cấp bởi MoMo tại https://business.momo.vn
         eventValue.put("amount", Integer.parseInt(String.valueOf(number))); //Kiểu integer
         eventValue.put("orderId", "order"+mahd); //uniqueue id cho Bill order, giá trị duy nhất cho mỗi đơn hàng
@@ -442,7 +442,7 @@ public class CartActivity extends AppCompatActivity implements GioHangView {
 
             }
             objExtraData.put("movie_name", name);
-            objExtraData.put("movie_format", "Đồ ăn");
+            objExtraData.put("movie_format", "Mỹ Phẩm");
             Log.d("end", "end2");
         } catch (JSONException e) {
             e.printStackTrace();

@@ -238,7 +238,7 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcv_sp_micay"
+                android:id="@+id/rcv_sp_trangdiem"
                 android:layout_marginStart="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

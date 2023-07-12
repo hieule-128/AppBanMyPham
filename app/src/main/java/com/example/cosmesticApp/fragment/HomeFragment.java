@@ -452,7 +452,7 @@ public class HomeFragment extends Fragment {
         rcvSPNoiBat = view.findViewById(R.id.rcv_sp_noibat);
         rcvSPDoUong = view.findViewById(R.id.rcv_sp_douong);
         rcvSPHQ = view.findViewById(R.id.rcv_sp_hanquoc);
-        rcvSPMC = view.findViewById(R.id.rcv_sp_micay);
+        rcvSPMC = view.findViewById(R.id.rcv_sp_trangdiem);
 
     }
 
