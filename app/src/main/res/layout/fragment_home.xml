@@ -83,17 +83,6 @@
                         android:textSize="8dp" />
 
                 </RelativeLayout>
-
-                <ImageView
-                    android:id="@+id/img_home_message"
-                    android:layout_marginEnd="10dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/ic_message"/>
-
-
             </LinearLayout>
 
 

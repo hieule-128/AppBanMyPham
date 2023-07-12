@@ -18,7 +18,6 @@ import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.cosmesticApp.fragment.BillFragment;
 import com.example.cosmesticApp.fragment.FavoriteFragment;
 import com.example.cosmesticApp.fragment.HomeFragment;
-import com.example.cosmesticApp.fragment.NotifyFragment;
 import com.example.cosmesticApp.fragment.ProfileFragment;
 import com.example.cosmesticApp.ultil.MyReceiver;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -180,27 +179,4 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(MyReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
     }
-//    private void status(String stastus){
-//        reference = FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-//
-//        HashMap<String, Object> hashMap = new HashMap<>();
-//        hashMap.put("status", stastus);
-//
-//        reference.updateChildren(hashMap);
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        status("online");
-//        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-//        registerReceiver(MyReceiver, filter);
-//    }
-//    // Check Internet
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        status("offline");
-//        unregisterReceiver(MyReceiver);
-//    }
 }

@@ -305,7 +305,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    // Sản phẩm đồ uống
+    // Sản phẩm nổi bật 2
     public  void  GetDataSPDoUong(){
         firestore.collection("SanPham").
                 whereEqualTo("type",3).
@@ -338,7 +338,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    // Sản phẩm Hàn Quốc
+    // Sản phẩm nổi bật 3
     public  void  GetDataSPHanQuoc(){
         firestore.collection("SanPham").
                 whereEqualTo("type",4).
@@ -370,7 +370,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    // Sản phẩm Mì cay
+    // Sản phẩm nổi bật 4
     public  void  GetDataSPMiCay(){
         firestore.collection("SanPham").
                 whereEqualTo("type",5).
@@ -401,7 +401,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    // Sản phẩm Yêu thích
+    // Sản phẩm nổi bật 5
     public  void  GetDataSPYeuThich(){
         firestore.collection("SanPham").
                 whereEqualTo("type",6).
@@ -432,7 +432,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    // Sản phẩm Lẩu
+    // Sản phẩm nổi bật 6
     public  void  GetDataSPLau(){
         firestore.collection("SanPham").
                 whereEqualTo("type",7).
@@ -464,7 +464,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    // Sản phẩm Gợi ý
+    // Sản phẩm nổi bật 7
     public  void  GetDataSPGoiY(){
         firestore.collection("SanPham").
                 whereEqualTo("type",8).
@@ -528,7 +528,6 @@ public class HomeFragment extends Fragment {
         imgHomeCart = view.findViewById(R.id.img_home_cart);
         swipeHome = view.findViewById(R.id.swipe_home);
         tvNumberCart = view.findViewById(R.id.tv_number_cart);
-        imgHomeMessage = view.findViewById(R.id.img_home_message);
         edtSearchHome = view.findViewById(R.id.edt_search_home);
         toolbarHome = view.findViewById(R.id.toolbar_home);
         cirAvatarHome = view.findViewById(R.id.cir_avatar_home);

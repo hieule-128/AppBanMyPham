@@ -82,7 +82,6 @@ public class CartActivity extends AppCompatActivity implements GioHangView {
 
     // Momo
     int total;
-    Chat chat;
     Number number;
 
     String sanpham = "";
