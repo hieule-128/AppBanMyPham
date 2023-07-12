@@ -26,11 +26,12 @@
             android:layout_height="100dp"
             app:cardElevation="0dp"
             app:cardCornerRadius="10dp">
+
             <ImageView
                 android:id="@+id/img_product"
-                android:layout_width="match_parent"
+                android:layout_width="71dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/hair1"
+                android:background="@drawable/image_removebg_preview"
                 android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
@@ -50,7 +51,7 @@
             android:layout_marginEnd="4dp"
             android:maxLines="1"
             android:singleLine="true"
-            android:text="Test"
+            android:text="PC 2021 Asus"
             android:textColor="#228b22"
             android:textSize="18sp"
             android:textStyle="bold"/>

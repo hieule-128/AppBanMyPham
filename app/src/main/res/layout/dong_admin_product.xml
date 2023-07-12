@@ -30,7 +30,7 @@
             android:layout_height="80dp"
 
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/pop_1" />
+            app:srcCompat="@drawable/image_removebg_preview" />
     </androidx.cardview.widget.CardView>
 
 

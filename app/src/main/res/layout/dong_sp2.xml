@@ -28,7 +28,7 @@
             android:padding="1dp"
             android:textColor="#228b22"
             android:textSize="14sp"
-            android:text="Test"
+            android:text="PC 2021 Asus"
             android:maxLines="1"
             android:singleLine="true"
             android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/hair1"/>
+                android:src="@drawable/image_removebg_preview"/>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
     <RelativeLayout

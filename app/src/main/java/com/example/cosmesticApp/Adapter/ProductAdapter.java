@@ -50,7 +50,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         } else if(type ==2){
             view = LayoutInflater.from(context).inflate(R.layout.dong_product_noibat,parent,false);
         }else if(type ==3){
-            view = LayoutInflater.from(context).inflate(R.layout.dong_do_uong,parent,false);
+            view = LayoutInflater.from(context).inflate(R.layout.dong_trang_diem,parent,false);
         }else if(type ==4){
             view = LayoutInflater.from(context).inflate(R.layout.dong_sp2,parent,false);
         }else if(type ==5) {
