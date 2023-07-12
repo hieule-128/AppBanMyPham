@@ -429,7 +429,7 @@ public class HomeFragment extends Fragment {
         imgHomeCart = view.findViewById(R.id.img_home_cart);
         swipeHome = view.findViewById(R.id.swipe_home);
         tvNumberCart = view.findViewById(R.id.tv_number_cart);
-        imgHomeMessage = view.findViewById(R.id.img_home_message);
+        //imgHomeMessage = view.findViewById(R.id.img_home_message);
         edtSearchHome = view.findViewById(R.id.edt_search_home);
         toolbarHome = view.findViewById(R.id.toolbar_home);
         cirAvatarHome = view.findViewById(R.id.cir_avatar_home);

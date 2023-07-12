@@ -219,7 +219,7 @@ public class AdminUpdateSPActivity extends AppCompatActivity implements AdapterV
         updateTrongluongSP.setText(product.getTrongluong());
         updateTypeSP.setText(product.getLoaisp());
         updateMotaSP.setText(product.getMota());
-        Picasso.get().load(product.getHinhanh()).into(imgAddCategory);
+        Picasso.get().load(product.getHinhanh()).into(imgEdit);
     }
 
     private boolean validate() {
